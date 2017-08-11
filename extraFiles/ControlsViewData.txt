@@ -1,0 +1,2 @@
+[{x:9,fa:[2]},"Up\n\n\n\n\n\n\n\n\n\nFly"],
+[{w:5,h:0.75},"Space\n\n\n\n\n\n\n\n\n\nShoot",{x:3},"Left\n\n\n\n\n\n\n\n\n\nWalk",{x:1},"Right\n\n\n\n\n\n\n\n\n\nWalk"]

@@ -1,0 +1,32 @@
+{
+    "images": ["assets/img/Blood.png"],
+    "frames": [
+        [0, 0, 200, 200], 
+        [200, 0, 200, 200], 
+        [400, 0, 200, 200], 
+        [0, 200, 200, 200], 
+        [200, 200, 200, 200], 
+        [400, 200, 200, 200],
+        [0, 400, 200, 200],
+        [200, 400, 200, 200],
+        [400, 400, 200, 200]
+    ],
+    "animations": {
+            "blood":{
+                "frames":[0,1,2,3,4,5,6,7,8],
+                    "speed": 0.5
+                },
+            "bloodMedium":{
+                "frames":[0,1,2,3,4],
+                    "speed": 0.5
+                },
+            "bloodLight":{
+                "frames":[0,1],
+                    "speed": 0.5
+                }
+    },
+    "texturepacker": [
+            "SmartUpdateHash: $TexturePacker:SmartUpdate:f6a7b7f45541eec44bf31fcf0bc19b93$",
+            "Created with TexturePacker (http://www.texturepacker.com) for EasalJS"
+    ]
+}

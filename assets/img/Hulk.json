@@ -1,0 +1,44 @@
+{
+    "images": ["assets/img/Hulk.jpg"],
+    "frames": [
+        [6, 285, 75, 92], 
+        [87, 285, 61, 88], 
+        [151, 285, 89, 84], 
+        [245, 292, 69, 86], 
+        [313, 295, 72, 87], 
+        [386, 300, 89, 86],
+        [249, 98, 38, 100],
+        [294, 98, 34, 93],
+        [88, 4, 59, 85],
+        [8, 96, 62, 89],
+        [87, 96, 72, 93],
+        [164, 96, 53, 98],
+        [235, 112, 73, 71],
+        [320, 116, 63, 72],
+        [466, 107, 91, 50],
+        [466, 162, 99, 42]
+    ],
+    "animations": {
+            "walk":{
+                "frames":[0,1,2,3,4,5],
+                    "speed": 0.08
+                },
+            "fly":{
+                "frames":[6, 7],
+                    "speed": 0.08
+                },
+            "shoot":{
+                "frames":[9,10,11,12,13],
+                "speed": 0.1
+            },
+            "die":{
+                "frames":[14,15],
+                "speed": 0.04
+            },
+            "stand":[8]
+    },
+    "texturepacker": [
+            "SmartUpdateHash: $TexturePacker:SmartUpdate:f6a7b7f45541eec44bf31fcf0bc19b93$",
+            "Created with TexturePacker (http://www.texturepacker.com) for EasalJS"
+    ]
+}

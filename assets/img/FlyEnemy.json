@@ -1,0 +1,36 @@
+{
+    "images": ["assets/img/FlyEnemy.png"],
+    "frames": [
+        [0, 0, 46, 29], 
+        [60, 0, 33, 26], 
+        [104, 0, 48, 29], 
+        [161, 0, 35, 33], 
+        [13, 51, 27, 26],
+        [55, 51, 38, 36],
+        [107, 51, 37, 49],
+        [13, 110, 33, 23]
+    ],
+    "animations": {
+            "flyLeft":{
+                "frames":[4, 1, 2],
+                    "speed": 0.08
+            },
+            "flyRight":{
+                "frames":[4, 3, 0],
+                    "speed": 0.08
+            },
+            "stop":{
+                "frames":[4, 5, 7],
+                "speed": 0.1
+            },
+            "flyUp":{
+                "frames":[4, 5, 6],
+                "speed": 0.04
+            },
+            "fall":[4]
+    },
+    "texturepacker": [
+            "SmartUpdateHash: $TexturePacker:SmartUpdate:f6a7b7f45541eec44bf31fcf0bc19b93$",
+            "Created with TexturePacker (http://www.texturepacker.com) for EasalJS"
+    ]
+}

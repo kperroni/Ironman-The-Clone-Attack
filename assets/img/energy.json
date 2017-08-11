@@ -1,0 +1,27 @@
+{
+    "images": ["assets/img/Energy.png"],
+    "frames": [
+        [0, 0, 18, 37],
+        [18, 0, 18, 37],
+        [36, 0, 18, 37],
+        [0, 37, 18, 37],
+        [18, 37, 18, 37],
+        [36, 37, 18, 37],
+        [0, 74, 18, 37],
+        [18, 74, 18, 37]
+    ],
+    "animations": {
+            "level0":[0],
+            "level1":[1],
+            "level2":[2],
+            "level3":[3],
+            "level4":[4],
+            "level5":[5],
+            "level6":[6],
+            "level7":[7]
+    },
+    "texturepacker": [
+            "SmartUpdateHash: $TexturePacker:SmartUpdate:f6a7b7f45541eec44bf31fcf0bc19b93$",
+            "Created with TexturePacker (http://www.texturepacker.com) for EasalJS"
+    ]
+}

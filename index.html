@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IRON MAN - THE CLONE ATTACK</title>
+
+        <link rel="stylesheet" type="text/css" href="assets/styles/style.css" media="screen" />
+
+        <script src="js/lib/easeljs-0.7.1.min.js"></script>
+        <script src="js/lib/tweenjs-0.5.1.min.js"></script>
+        <script src="js/lib/soundjs-0.5.2.min.js"></script>
+        <script src="js/lib/preloadjs-0.4.1.min.js"></script>
+        <script src="js/lib/box2dweb-2.1.a.3.min.js"></script>
+        <script src="js/lib/ndgmr.Collision.sprite.js"></script>
+
+        <script src="js/Controls.js"></script>
+        <script src="js/GameProject.js"></script>
+        <script src="js/State.js"></script>
+
+        <script src="js/classes/components/Preloader.js"></script>
+        <script src="js/classes/components/SimpleButton.js"></script>
+
+        <script src="js/classes/managers/AssetManager.js"></script>
+
+        <script src="js/classes/sprites/Background.js"></script>
+        <script src="js/classes/sprites/Blood.js"></script>
+        <script src="js/classes/sprites/Enemy.js"></script>
+        <script src="js/classes/sprites/EnergyBar.js"></script>
+        <script src="js/classes/sprites/Floor.js"></script>
+        <script src="js/classes/sprites/FlyEnemy.js"></script>
+        <script src="js/classes/sprites/Health.js"></script>
+        <script src="js/classes/sprites/Laser.js"></script>
+        <script src="js/classes/sprites/Player.js"></script>
+
+        <script src="js/classes/utils/Physics.js"></script>
+        
+        <script src="js/scenes/GameMenu.js"></script>
+        <script src="js/scenes/Level1.js"></script>
+        <script src="js/scenes/Level2.js"></script>
+        <script src="js/scenes/GameOver.js"></script>
+        <script src="js/scenes/ControlsView.js"></script>
+    </head>
+
+    <body onload="init()">
+        <canvas id="canvas" width="800" height="600"></canvas>
+    </body>
+
+<script>
+    var stage;
+    var canvas;
+
+    function init() {
+        window.game = window.game || {};
+        game.main = new game.GameProject();
+    }
+</script>
+
+</html>

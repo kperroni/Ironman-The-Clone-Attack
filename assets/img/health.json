@@ -1,0 +1,15 @@
+{
+	"images": ["assets/img/health.png"],
+	"frames": [
+		[0, 0, 300, 50],
+		[1, 62, 63, 87]
+	],
+	"animations": {
+		"healthBar": [0],
+		"portrait": [1]
+	},
+	"texturepacker": [
+		"SmartUpdateHash: $TexturePacker:SmartUpdate:f6a7b7f45541eec44bf31fcf0bc19b93$",
+		"Created with TexturePacker (http://www.texturepacker.com) for EasalJS"
+	]
+}

@@ -1,0 +1,13 @@
+{
+    "images": ["assets/img/tiles1.png"],
+    "frames": [
+        [80, 48, 48, 48]
+    ],
+    "animations": {
+            "floor":[0]
+    },
+    "texturepacker": [
+            "SmartUpdateHash: $TexturePacker:SmartUpdate:f6a7b7f45541eec44bf31fcf0bc19b93$",
+            "Created with TexturePacker (http://www.texturepacker.com) for EasalJS"
+    ]
+}

@@ -1,0 +1,17 @@
+html { 
+  background: url("../img/Background.jpg") no-repeat center fixed; 
+  background-size: cover;
+}
+
+#canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+@font-face {
+  font-family: 'IronmanFont';
+  src: url("../styles/IRON MAN OF WAR 002 NCV.ttf");
+}
