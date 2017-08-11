@@ -79,7 +79,8 @@
                 break;
         }
 
-        this.runTransition();
+        if(this.currentScene != null)
+            this.runTransition();
     }
 
     p.onStateEvent = function (e, data) {

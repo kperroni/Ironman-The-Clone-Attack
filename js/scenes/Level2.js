@@ -20,20 +20,22 @@
     p.portrait;
     p.healthBar;
     p.physics;
+    p.flyEnemy = Array();
     p.enemy = Array();
     p.bullets = Array();
     p.blood = Array();
+    p.explosion = Array();
     p.floor = Array();
     p.runningScene = true;
     p.map = [
-                [0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,1,1,0,1,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
             ];
@@ -58,9 +60,11 @@
 
     p.readMap = function(){
         this.enemy = Array();
+        this.flyEnemy = Array();
         this.bullets = Array();
         this.blood = Array();
         this.floor = Array();
+        
 
         for(i = 0; i < this.map.length; i++){
             for(j = 0; j < this.map[i].length; j++){
@@ -69,17 +73,20 @@
                         this.floor.push(new game.Floor(new createjs.SpriteSheet(game.assets.getAsset(game.assets.FLOOR)), j * 48, i * 60));
                         break;
                     case 2: //Enemie - Hulk
-                        this.enemy.push(new game.Enemy(new createjs.SpriteSheet(game.assets.getAsset(game.assets.HULK)), j * 48, i * 60));
+                        this.enemy.push(new game.Enemy(new createjs.SpriteSheet(game.assets.getAsset(game.assets.HULK)), j * 48, i * 60 - 30));
                         break;
-                    case 3: //Player
-                        this.player = new game.Player(new createjs.SpriteSheet(game.assets.getAsset(game.assets.IRONMAN)), j * 48, i * 60);
+                    case 3: //FlyEnemies
+                        this.flyEnemy.push(new game.FlyEnemy(new createjs.SpriteSheet(game.assets.getAsset(game.assets.FLYENEMY)), j * 48));
+                        break;
+                    case 4: //Player
+                        this.player = new game.Player(new createjs.SpriteSheet(game.assets.getAsset(game.assets.IRONMAN)), j * 48, i * 60 - 30);
                         break;
                     default:
                         break;
                 }
             }
         }
-    } 
+    }
 
     p.addBG = function () {
         this.background = new game.Background(game.assets.getAsset(game.assets.LEVEL2_BACKGROUND), 0, 0);
@@ -119,6 +126,10 @@
             element.scaleX = 1.3;
             element.scaleY = 1.3;
             element.damage = 4;
+            this.addChild(element);
+        }, this);
+
+        this.flyEnemy.forEach(function (element) {
             this.addChild(element);
         }, this);
     }
@@ -173,6 +184,17 @@
             }
         }
 
+        for (var index = 0; index < this.flyEnemy.length; index++) {
+            var element = this.flyEnemy[index];
+
+            element.run();
+
+            if (element.x + element.getBounds().width < 0 || !element.isAlive) {
+                this.removeChild(element);
+                this.flyEnemy.splice(index, 1);
+            }
+        }
+
         for (var index = 0; index < this.enemy.length; index++) {
             var element = this.enemy[index];
 
@@ -203,6 +225,17 @@
             if (element.x + element.getBounds().width < 0) {
                 this.removeChild(element);
                 this.blood.splice(index, 1);
+            }
+        }
+
+        for (var index = 0; index < this.explosion.length; index++) {
+            var element = this.explosion[index];
+
+            element.run();
+
+            if (element.x + element.getBounds().width < 0 || element.exploded) {
+                this.removeChild(element);
+                this.explosion.splice(index, 1);
             }
         }
     }

@@ -38,6 +38,7 @@
     p.HEALTH = "health";
     p.KEYBOARD = "keyboard";
     p.PORTRAIT = 'portrait';
+    p.EXPLOSION = 'explosion';
 
     //events
     p.ASSETS_PROGRESS = 'assets progress';
@@ -70,6 +71,7 @@
             {id: this.ENERGY, src: this.imgPath + "energy.json"},
             {id: this.HEALTH, src: this.imgPath + "health.json"},
             {id: this.FLYENEMY, src: this.imgPath + "flyEnemy.json"},
+            {id: this.EXPLOSION, src: this.imgPath + "Explosion.json"},
             {id: this.LEVEL1_BACKGROUND, src: this.imgPath + "Factory_BG.jpg"},
             {id: this.LEVEL2_BACKGROUND, src: this.imgPath + "Basement_BG2.png"},
             {id: this.GAMEOVER_BACKGROUND, src: this.imgPath + "Gameover_BG2.jpg"},

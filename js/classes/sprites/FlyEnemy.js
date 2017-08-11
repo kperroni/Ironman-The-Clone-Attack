@@ -109,17 +109,25 @@
                     this.flyRight();
                 }
             }
+
+            if (!player.invulnerable && ndgmr.checkRectCollision(this, player) != null && this.isAlive && player.isAlive) {
+                this.die();
+                player.attacked(this.damage);
+            }
         }else{
             this.flyLeft();
         }
     }
 
     p.die = function () {
-        
-    }
+        this.isAlive = false;
 
-    p.dieComplete = function () {
-        
+        var explosion = new game.Explosion(new createjs.SpriteSheet(game.assets.getAsset(game.assets.EXPLOSION)), this.x, this.y);
+        game.main.currentScene.addChild(explosion);
+        game.main.currentScene.setChildIndex(game.main.currentScene.player, game.main.currentScene.getNumChildren()-1);
+        game.main.currentScene.explosion.push(explosion);
+
+        explosion.explode();
     }
 
     window.game.FlyEnemy = FlyEnemy;

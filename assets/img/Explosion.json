@@ -1,0 +1,25 @@
+{
+    "images": ["assets/img/Explosion.png"],
+    "frames": [
+        [22, 90, 27, 22], 
+        [51, 74, 48, 40], 
+        [102, 58, 47, 56], 
+        [152, 34, 50, 81], 
+        [203, 18, 50, 97], 
+        [261, 11, 48, 104],
+        [311, 10, 40, 103],
+        [357, 10, 39, 105],
+        [405, 9, 39, 46],
+        [449, 9, 38, 32]
+    ],
+    "animations": {
+            "explode":{
+                "frames":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                    "speed": 0.08
+                }
+    },
+    "texturepacker": [
+            "SmartUpdateHash: $TexturePacker:SmartUpdate:f6a7b7f45541eec44bf31fcf0bc19b93$",
+            "Created with TexturePacker (http://www.texturepacker.com) for EasalJS"
+    ]
+}
