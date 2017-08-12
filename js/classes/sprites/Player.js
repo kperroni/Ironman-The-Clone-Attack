@@ -20,6 +20,7 @@
     p.hitPoints = 10;
     p.invulnerable = false;
     p.energyLevel = 100;
+    p.lastEnergyUse = null;
 
     p.Sprite_initialize = p.initialize;
 
@@ -60,6 +61,7 @@
         this.checkIsGrounded();
 
         if (this.isGrounded && this.currentAnimation != "walk") {
+            this.stopCurrentSound();
             this.gotoAndPlay('walk');
         }
 
@@ -107,13 +109,21 @@
         }
     }
 
+    p.checkBattery = function(){
+        if(this.lastEnergyUse!= null && Date.now() - this.lastEnergyUse > 2000 && this.energyLevel < 100){
+            this.energyLevel += 0.1;
+            game.main.currentScene.energyBar.changePercentage(this.energyLevel);
+            game.main.currentScene.energyBarText.text = Math.round(this.energyLevel) + "%";
+        }
+    }
+
     p.hasEnoughEnergy = function (required) {
         if (this.energyLevel <= required) {
             return false;
         }
 
         this.energyLevel -= required;
-
+        this.lastEnergyUse = Date.now();
         game.main.currentScene.energyBar.changePercentage(this.energyLevel);
         game.main.currentScene.energyBarText.text = Math.round(this.energyLevel) + "%";
         return true;

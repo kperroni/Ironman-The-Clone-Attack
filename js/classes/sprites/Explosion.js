@@ -29,6 +29,7 @@
     p.explode = function(){
         this.on('animationend', this.explodeComplete);
         this.gotoAndPlay('explode');
+        createjs.Sound.play("explosion_sound");
         createjs.Tween.get(this, { loop: false }).to({y: this.y - 100 }, 1000);
     }
 

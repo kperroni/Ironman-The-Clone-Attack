@@ -15,6 +15,7 @@
     p.DEATH = 'death';
     p.GAMEOVER_MUSIC = "gameOver_Music";
     p.GAMEOVER_VOICE = "gameOver_Voice";
+    p.EXPLOSION_SOUND = "explosion_sound";
 
     //graphics
     p.IRONMAN = 'ironman';
@@ -57,6 +58,7 @@
         this.loadManifest = [
             {id:this.LASER, src: this.soundsPath + "laser.wav"},
             {id:this.PUNCH, src: this.soundsPath + "punch.mp3"},
+            {id:this.EXPLOSION_SOUND, src: this.soundsPath + "explosion.mp3"},
             {id:this.DEATH, src: this.soundsPath + "death.mp4"},
             {id:this.INTRO, src: this.soundsPath + "intro.mp3"},
             {id: this.LEVEL1_SOUND, src: this.soundsPath + "level1.mp3"},

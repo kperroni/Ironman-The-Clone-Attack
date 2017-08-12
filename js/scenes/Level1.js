@@ -168,6 +168,7 @@
         this.physics.run();
         this.background.run();
         this.secondBackground.run();
+        this.player.checkBattery();
 
         for (var index = 0; index < this.floor.length; index++) {
             var element = this.floor[index];
