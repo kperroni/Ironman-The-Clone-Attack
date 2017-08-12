@@ -14,6 +14,7 @@
     p.isJumping = false;
     p.isWalking = false;
     p.isShooting = false;
+    p.isPunching = false;
     p.isAlive = true;
     p.direction = "RIGHT";
     p.currentSound = null;
@@ -130,7 +131,7 @@
     }
 
     p.shoot = function () {
-        if (!this.hasEnoughEnergy(5)) {
+        if (!this.hasEnoughEnergy(5) || !this.isAlive) {
             return;
         }
 
@@ -163,6 +164,31 @@
         this.isShooting = false;
         this.stop();
         this.removeAllEventListeners();
+    }
+
+    p.punch = function(){
+        if (this.isGrounded && this.currentAnimation != "punch") {
+            this.isShooting = true;
+            this.on('animationend', this.punchComplete);
+            this.gotoAndPlay('punch');
+        }
+    }
+
+    p.punchComplete = function(){
+        this.isShooting = false;
+        this.stop();
+        this.removeAllEventListeners();
+
+        game.main.currentScene.enemy.forEach(function(element) {
+            if(element.x > 900){
+                return;
+            }
+
+            if(ndgmr.checkRectCollision(this, element) != null) {    
+                element.die(this.damage);
+                createjs.Sound.play("punch");
+            }
+        }, this);
     }
 
     p.fall = function () {

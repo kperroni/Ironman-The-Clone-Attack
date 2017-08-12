@@ -20,7 +20,9 @@
         [387, 423, 32, 8],
         [394, 300, 82, 49],
         [395, 368, 83, 27],
-        [523, 208, 53, 76]
+        [523, 208, 53, 76],
+        [349, 12, 62, 84],
+        [419, 14, 78, 79]
     ],
     "animations": {
             "walk":{
@@ -42,10 +44,13 @@
             "hit": {
                 "frames": [19],
                 "speed": 0.08
+            },
+            "punch": {
+                "frames": [20,21],
+                "speed": 0.08
             }, 
             "stand":[9],
-            "laser":[16]
-                   
+            "laser":[16]    
     },
     "texturepacker": [
             "SmartUpdateHash: $TexturePacker:SmartUpdate:f6a7b7f45541eec44bf31fcf0bc19b93$",

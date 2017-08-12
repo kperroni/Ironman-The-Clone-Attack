@@ -118,8 +118,7 @@
 
         var player = game.main.currentScene.player;
         
-        if(ndgmr.checkRectCollision(this, player) != null && !player.invulnerable && this.isAlive && player.isAlive && player.isGrounded && !player.isJumping) {
-            console.log(this.damage);    
+        if(ndgmr.checkRectCollision(this, player) != null && !player.invulnerable && this.isAlive && player.isAlive && player.isGrounded && !player.isJumping) {    
             player.attacked(this.damage);
         }
     }

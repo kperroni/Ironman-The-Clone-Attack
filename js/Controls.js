@@ -3,6 +3,7 @@
     const ARROW_KEY_UP = 38;
     const ARROW_KEY_RIGHT = 39;
     const ARROW_KEY_DOWN = 40;
+    const CTRL_KEY_DOWN = 17;
 
     var leftKeyDown, rightKeyDown, upKeyDown = false;
 
@@ -20,6 +21,10 @@
             case BAR_SPACE_KEY:
                 var player = game.main.currentScene.player;
                 player.shoot();
+                break;
+            case CTRL_KEY_DOWN:
+                var player = game.main.currentScene.player;
+                player.punch();
                 break;
             default:
                 console.log(e.keyCode);
