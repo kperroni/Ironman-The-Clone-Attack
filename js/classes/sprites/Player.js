@@ -93,7 +93,7 @@
     }
 
     p.jump = function () {
-        if (!this.hasEnoughEnergy(0.2) || !this.isAlive) {
+        if (!this.hasEnoughEnergy(0.2) || !this.isAlive || this.isShooting) {
             return;
         }
 

@@ -10,6 +10,7 @@
     function onDPadDown(e){
         switch (e.keyCode){
             case ARROW_KEY_LEFT:
+                console.log("left pressed");
                 leftKeyDown = true;
                 break;
             case ARROW_KEY_RIGHT:
