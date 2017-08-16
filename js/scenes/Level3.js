@@ -2,17 +2,17 @@
 
     window.game = window.game || {}
 
-    function Level2() {
+    function Level3() {
         this.initialize();
     }
 
-    var p = Level2.prototype = new createjs.Container();
+    var p = Level3.prototype = new createjs.Container();
 
     p.Container_initialize = p.initialize;
 
     p.scoreText = null
     p.energyBarText = null;
-    p.level2Container = null;
+    p.level3Container = null;
     p.background;
     p.secondBackground;
     p.player;
@@ -55,7 +55,7 @@
         this.addHealth();
         this.addPortrait();
         this.addPlayer();
-        this.createlevel2Container();
+        this.createlevel3Container();
     }
 
     p.readMap = function(){
@@ -162,9 +162,9 @@
         this.addChild(this.energyBarText);
     }
 
-    p.createlevel2Container = function () {
-        this.level2Container = new createjs.Container();
-        this.addChild(this.level2Container);
+    p.createlevel3Container = function () {
+        this.level3Container = new createjs.Container();
+        this.addChild(this.level3Container);
     }
 
     p.update = function () {
@@ -241,7 +241,7 @@
         }
     }
 
-    p.checkLevel2 = function () {
+    p.checkLevel3 = function () {
         if(!this.runningScene){
             this.dispatchEvent(game.GameStateEvents.GAME_OVER);
         }
@@ -251,18 +251,18 @@
             if(this.enemy[index].isAlive == true)
             nextLevel = false;
         }
-        //LEVEL 3
-        if(nextLevel == true){
-            this.dispatchEvent(game.GameStateEvents.LEVEL3);
-            createjs.Sound.stop();
-        }
+        //LEVEL 4
+       // if(nextLevel == true){
+       //     this.dispatchEvent(game.GameStateEvents.LEVEL4);
+       //     createjs.Sound.stop();
+       // }
     }
 
     p.run = function () {
         this.update();
-        this.checkLevel2();
+        this.checkLevel3();
     }
 
-    window.game.Level2 = Level2;
+    window.game.Level3 = Level3;
 
 }(window));

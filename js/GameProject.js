@@ -77,6 +77,9 @@
             case game.GameStates.LEVEL2:
                 this.currentGameStateFunction = this.gameStateLevel2;
                 break;
+            case game.GameStates.LEVEL3:
+                this.currentGameStateFunction = this.gameStateLevel3;
+                break;
         }
 
         if(this.currentScene != null)
@@ -127,6 +130,16 @@
 
     p.gameStateLevel2 = function (){
         var scene = new game.Level2();
+        stage.addChild(scene);
+        scene.on(game.GameStateEvents.GAME_OVER, this.onStateEvent, this, false, {state:game.GameStates.GAME_OVER});
+        scene.on(game.GameStateEvents.LEVEL2, this.onStateEvent, this, false, {state:game.GameStates.LEVEL3});
+        stage.removeChild(this.currentScene);
+        this.currentScene = scene;
+        this.changeState(game.GameStates.RUN_SCENE);
+    }
+
+    p.gameStateLevel3 = function (){
+        var scene = new game.Level3();
         stage.addChild(scene);
         scene.on(game.GameStateEvents.GAME_OVER, this.onStateEvent, this, false, {state:game.GameStates.GAME_OVER});
         stage.removeChild(this.currentScene);

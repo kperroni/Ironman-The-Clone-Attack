@@ -111,7 +111,7 @@
     }
 
     p.checkBattery = function(){
-        if(this.lastEnergyUse!= null && Date.now() - this.lastEnergyUse > 2000 && this.energyLevel < 100){
+        if(this.lastEnergyUse!= null && Date.now() - this.lastEnergyUse > 2000 && this.energyLevel < 100 && this.isAlive){
             this.energyLevel += 0.1;
             game.main.currentScene.energyBar.changePercentage(this.energyLevel);
             game.main.currentScene.energyBarText.text = Math.round(this.energyLevel) + "%";
