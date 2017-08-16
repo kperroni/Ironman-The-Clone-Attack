@@ -31,6 +31,9 @@
     p.LEVEL2_BACKGROUND = "level2_BG";
     p.LEVEL2_SOUND = "level2_SN";
 
+    p.LEVEL3_BACKGROUND = "level3_BG";
+    p.LEVEL3_SOUND = "level3_SN";
+
     p.GAMEOVER_BACKGROUND = "gameover_BG";
 
     p.BLOOD = "blood";
@@ -63,6 +66,7 @@
             {id:this.INTRO, src: this.soundsPath + "intro.mp3"},
             {id: this.LEVEL1_SOUND, src: this.soundsPath + "level1.mp3"},
             {id: this.LEVEL2_SOUND, src: this.soundsPath + "level2.mp3"},
+            {id: this.LEVEL3_SOUND, src: this.soundsPath + "level3.mp3"},
             {id: this.GAMEOVER_MUSIC, src: this.soundsPath + "gameOverMusic.mp3"},
             {id: this.GAMEOVER_VOICE, src: this.soundsPath + "gameOverVoice.mp3"},
             {id: this.JET, src: this.soundsPath + "jet.wav"},
@@ -76,6 +80,7 @@
             {id: this.EXPLOSION, src: this.imgPath + "Explosion.json"},
             {id: this.LEVEL1_BACKGROUND, src: this.imgPath + "Factory_BG.jpg"},
             {id: this.LEVEL2_BACKGROUND, src: this.imgPath + "Basement_BG2.png"},
+            {id: this.LEVEL3_BACKGROUND, src: this.imgPath + "Lab_BG3.png"},
             {id: this.GAMEOVER_BACKGROUND, src: this.imgPath + "Gameover_BG2.jpg"},
             {id: this.PORTRAIT, src: this.imgPath + "IronManPortrait.jpg"},
             {id: this.KEYBOARD, src: this.imgPath + "keyboard.png"},

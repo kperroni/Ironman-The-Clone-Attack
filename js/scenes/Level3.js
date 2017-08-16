@@ -41,7 +41,7 @@
             ];
 
     p.initialize = function () {    
-        createjs.Sound.play('level2_SN', {loop: -1}); 
+        createjs.Sound.play('level3_SN', {loop: -1}); 
         window.onkeydown = onDPadDown;
         window.onkeyup = onDPadUp;
         this.Container_initialize();
