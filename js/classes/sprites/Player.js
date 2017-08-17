@@ -94,6 +94,7 @@
 
     p.jump = function () {
         if (!this.hasEnoughEnergy(0.2) || !this.isAlive || this.isShooting) {
+            this.isJumping = false;
             return;
         }
 
@@ -167,7 +168,7 @@
     }
 
     p.punch = function(){
-        if (this.isGrounded && this.currentAnimation != "punch") {
+        if (this.isGrounded && this.currentAnimation != "punch" && this.isAlive) {
             this.isShooting = true;
             this.on('animationend', this.punchComplete);
             this.gotoAndPlay('punch');

@@ -31,11 +31,19 @@
         }
 
         var enemies = game.main.currentScene.enemy;
+        var flyEnemies = game.main.currentScene.flyEnemy;
 
         enemies.forEach(function(element) {
             if(ndgmr.checkRectCollision(this, element) && this.shouldDie && element.isAlive){
                 this.shouldDie = false;
                 this.hurt();
+                element.die();
+            };
+        }, this);
+
+        flyEnemies.forEach(function(element) {
+            if(ndgmr.checkRectCollision(this, element) && this.shouldDie && element.isAlive){
+                this.shouldDie = false;
                 element.die();
             };
         }, this);
