@@ -43,6 +43,7 @@
     p.KEYBOARD = "keyboard";
     p.PORTRAIT = 'portrait';
     p.EXPLOSION = 'explosion';
+    p.COIN = 'coin';
 
     //events
     p.ASSETS_PROGRESS = 'assets progress';
@@ -76,6 +77,7 @@
             {id: this.FLOOR, src: this.imgPath + "tile.json"},
             {id: this.ENERGY, src: this.imgPath + "energy.json"},
             {id: this.HEALTH, src: this.imgPath + "health.json"},
+            {id: this.COIN, src: this.imgPath + "Coin.json"},
             {id: this.FLYENEMY, src: this.imgPath + "flyEnemy.json"},
             {id: this.EXPLOSION, src: this.imgPath + "Explosion.json"},
             {id: this.LEVEL1_BACKGROUND, src: this.imgPath + "Factory_BG.jpg"},

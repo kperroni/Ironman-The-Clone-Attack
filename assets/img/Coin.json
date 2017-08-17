@@ -1,0 +1,25 @@
+{
+    "images": ["assets/img/Coin.png"],
+    "frames": [
+        [0, 0, 43, 45], 
+        [45, 0, 42, 45], 
+        [93, 0, 37, 45], 
+        [141, 0, 30, 45], 
+        [190, 0, 22, 45],
+        [240, 0, 9, 45],
+        [280, 0, 20, 45],
+        [320, 0, 29, 45],
+        [361, 0, 35, 45],
+        [403, 0, 41, 45]
+    ],
+    "animations": {
+            "spin":{
+                "frames":[0,1,2,3,4,5,6,7,8,9],
+                    "speed": 0.1
+                }
+    },
+    "texturepacker": [
+            "SmartUpdateHash: $TexturePacker:SmartUpdate:f6a7b7f45541eec44bf31fcf0bc19b93$",
+            "Created with TexturePacker (http://www.texturepacker.com) for EasalJS"
+    ]
+}

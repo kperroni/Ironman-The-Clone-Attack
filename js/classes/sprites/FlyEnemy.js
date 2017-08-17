@@ -91,7 +91,7 @@
             return;
         }
 
-        if(Math.abs(this.x - player.x) <= 200 && Math.abs(this.y - player.y) <= 130){
+        if(Math.abs(this.x - player.x) <= 200 && Math.abs(this.y - player.y) <= 130 && player.isAlive){
             if(player.x < this.x){
                 this.direction = "LEFT";
             }else{
