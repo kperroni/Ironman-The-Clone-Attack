@@ -132,7 +132,7 @@
         var scene = new game.Level2();
         stage.addChild(scene);
         scene.on(game.GameStateEvents.GAME_OVER, this.onStateEvent, this, false, {state:game.GameStates.GAME_OVER});
-        scene.on(game.GameStateEvents.LEVEL2, this.onStateEvent, this, false, {state:game.GameStates.LEVEL3});
+        scene.on(game.GameStateEvents.LEVEL3, this.onStateEvent, this, false, {state:game.GameStates.LEVEL3});
         stage.removeChild(this.currentScene);
         this.currentScene = scene;
         this.changeState(game.GameStates.RUN_SCENE);

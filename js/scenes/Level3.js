@@ -89,8 +89,8 @@
     }
 
     p.addBG = function () {
-        this.background = new game.Background(game.assets.getAsset(game.assets.LEVEL2_BACKGROUND), 0, 0);
-        this.secondBackground = new game.Background(game.assets.getAsset(game.assets.LEVEL2_BACKGROUND), document.getElementById('canvas').width, 0);
+        this.background = new game.Background(game.assets.getAsset(game.assets.LEVEL3_BACKGROUND), 0, 0);
+        this.secondBackground = new game.Background(game.assets.getAsset(game.assets.LEVEL3_BACKGROUND), document.getElementById('canvas').width, 0);
         this.addChild(this.secondBackground);
         this.addChild(this.background);
     }

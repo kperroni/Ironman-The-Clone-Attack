@@ -80,7 +80,7 @@
             {id: this.EXPLOSION, src: this.imgPath + "Explosion.json"},
             {id: this.LEVEL1_BACKGROUND, src: this.imgPath + "Factory_BG.jpg"},
             {id: this.LEVEL2_BACKGROUND, src: this.imgPath + "Basement_BG2.png"},
-            {id: this.LEVEL3_BACKGROUND, src: this.imgPath + "Lab_BG3.png"},
+            {id: this.LEVEL3_BACKGROUND, src: this.imgPath + "Lab_BG3.jpg"},
             {id: this.GAMEOVER_BACKGROUND, src: this.imgPath + "Gameover_BG2.jpg"},
             {id: this.PORTRAIT, src: this.imgPath + "IronManPortrait.jpg"},
             {id: this.KEYBOARD, src: this.imgPath + "keyboard.png"},
