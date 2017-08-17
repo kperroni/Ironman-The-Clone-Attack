@@ -47,6 +47,7 @@
         }
 
         if (ndgmr.checkRectCollision(this, player) != null && !this.collected) {
+            createjs.Sound.play("cash");
             this.catched();
         }
     }
