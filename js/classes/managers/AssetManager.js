@@ -15,6 +15,7 @@
     p.DEATH = 'death';
     p.GAMEOVER_MUSIC = "gameOver_Music";
     p.GAMEOVER_VOICE = "gameOver_Voice";
+    p.WIN_MUSIC = "win_music";
     p.EXPLOSION_SOUND = "explosion_sound";
 
     //graphics
@@ -35,6 +36,7 @@
     p.LEVEL3_SOUND = "level3_SN";
 
     p.GAMEOVER_BACKGROUND = "gameover_BG";
+    p.ENDGAME_BACKGROUND = "endgame_BG";
 
     p.BLOOD = "blood";
     p.FLOOR = "floor";
@@ -65,6 +67,7 @@
             {id:this.EXPLOSION_SOUND, src: this.soundsPath + "explosion.mp3"},
             {id:this.DEATH, src: this.soundsPath + "death.mp4"},
             {id:this.INTRO, src: this.soundsPath + "intro.mp3"},
+            {id:this.WIN_MUSIC, src: this.soundsPath + "win.mp3"},
             {id: this.LEVEL1_SOUND, src: this.soundsPath + "level1.mp3"},
             {id: this.LEVEL2_SOUND, src: this.soundsPath + "level2.mp3"},
             {id: this.LEVEL3_SOUND, src: this.soundsPath + "level3.mp3"},
@@ -84,6 +87,7 @@
             {id: this.LEVEL2_BACKGROUND, src: this.imgPath + "Basement_BG2.png"},
             {id: this.LEVEL3_BACKGROUND, src: this.imgPath + "Lab_BG3.jpg"},
             {id: this.GAMEOVER_BACKGROUND, src: this.imgPath + "Gameover_BG2.jpg"},
+            {id: this.ENDGAME_BACKGROUND, src: this.imgPath + "End_BG4.jpg"},
             {id: this.PORTRAIT, src: this.imgPath + "IronManPortrait.jpg"},
             {id: this.KEYBOARD, src: this.imgPath + "keyboard.png"},
             {id: "font", src: this.stylePath + "IRON MAN OF WAR 002 NCV.ttf"}

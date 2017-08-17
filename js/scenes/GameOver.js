@@ -64,11 +64,5 @@
         this.dispatchEvent(game.GameStateEvents.MAIN_MENU);
     }
 
-    p.update = function () {
-        this.background.run();
-        this.secondBackground.run();
-
-    }
-
     window.game.GameOver = GameOver;
 }(window));

@@ -276,10 +276,10 @@
             nextLevel = false;
         }
         //LEVEL 4
-       // if(nextLevel == true){
-       //     this.dispatchEvent(game.GameStateEvents.LEVEL4);
-       //     createjs.Sound.stop();
-       // }
+        if(nextLevel == true){
+            this.dispatchEvent(game.GameStateEvents.END_GAME);
+            createjs.Sound.stop();
+        }
     }
 
     p.run = function () {

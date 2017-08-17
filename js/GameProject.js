@@ -32,10 +32,10 @@
         game.assets.on(game.assets.ASSETS_COMPLETE, this.assetsReady, this);
         game.assets.preloadAssets();
     }
-    
-    p.runTransition = function(){
+
+    p.runTransition = function () {
         this.currentScene.alpha = 0;
-        createjs.Tween.get(this.currentScene).to({alpha: 1},1000);
+        createjs.Tween.get(this.currentScene).to({ alpha: 1 }, 1000);
     }
 
     p.onAssetsProgress = function () {
@@ -52,7 +52,7 @@
     p.gameReady = function () {
         createjs.Ticker.setFPS(60);
         createjs.Ticker.on("tick", this.onTick, this);
-        createjs.Sound.play('intro', {loop: -1});
+        createjs.Sound.play('intro', { loop: -1 });
         this.changeState(game.GameStates.MAIN_MENU);
     }
 
@@ -68,6 +68,9 @@
             case game.GameStates.GAME_OVER:
                 this.currentGameStateFunction = this.gameStateGameOver;
                 break;
+            case game.GameStates.END_GAME:
+                this.currentGameStateFunction = this.gameStateEndGame;
+                break;
             case game.GameStates.CONTROLS_SCREEN:
                 this.currentGameStateFunction = this.gameStateControlScreen;
                 break;
@@ -82,7 +85,7 @@
                 break;
         }
 
-        if(this.currentScene != null)
+        if (this.currentScene != null)
             this.runTransition();
     }
 
@@ -92,8 +95,8 @@
 
     p.gameStateMainMenu = function () {
         var scene = new game.GameMenu();
-        scene.on(game.GameStateEvents.LEVEL1, this.onStateEvent, this, false, {state:game.GameStates.LEVEL1});
-        scene.on(game.GameStateEvents.CONTROLS_SCREEN, this.onStateEvent, this, false, {state:game.GameStates.CONTROLS_SCREEN});
+        scene.on(game.GameStateEvents.LEVEL1, this.onStateEvent, this, false, { state: game.GameStates.LEVEL1 });
+        scene.on(game.GameStateEvents.CONTROLS_SCREEN, this.onStateEvent, this, false, { state: game.GameStates.CONTROLS_SCREEN });
         stage.addChild(scene);
         stage.removeChild(this.currentScene);
         this.currentScene = scene;
@@ -103,45 +106,55 @@
     p.gameStateGameOver = function () {
         var scene = new game.GameOver();
         stage.addChild(scene);
-        scene.on(game.GameStateEvents.MAIN_MENU, this.onStateEvent, this, false, {state:game.GameStates.MAIN_MENU});
+        scene.on(game.GameStateEvents.MAIN_MENU, this.onStateEvent, this, false, { state: game.GameStates.MAIN_MENU });
         stage.removeChild(this.currentScene);
         this.currentScene = scene;
         this.changeState(game.GameStates.RUN_SCENE);
     }
 
-   p.gameStateControlScreen = function (){
+    p.gameStateEndGame = function () {
+        var scene = new game.EndGame();
+        stage.addChild(scene);
+        scene.on(game.GameStateEvents.MAIN_MENU, this.onStateEvent, this, false, { state: game.GameStates.MAIN_MENU });
+        stage.removeChild(this.currentScene);
+        this.currentScene = scene;
+        this.changeState(game.GameStates.RUN_SCENE);
+    }
+
+    p.gameStateControlScreen = function () {
         var scene = new game.ControlsView();
         stage.addChild(scene);
-        scene.on(game.GameStateEvents.MAIN_MENU, this.onStateEvent, this, false, {state:game.GameStates.MAIN_MENU});
+        scene.on(game.GameStateEvents.MAIN_MENU, this.onStateEvent, this, false, { state: game.GameStates.MAIN_MENU });
         stage.removeChild(this.currentScene);
         this.currentScene = scene;
         this.changeState(game.GameStates.RUN_SCENE);
     }
 
-    p.gameStateLevel1 = function (){
+    p.gameStateLevel1 = function () {
         var scene = new game.Level1();
         stage.addChild(scene);
-        scene.on(game.GameStateEvents.GAME_OVER, this.onStateEvent, this, false, {state:game.GameStates.GAME_OVER});
-        scene.on(game.GameStateEvents.LEVEL2, this.onStateEvent, this, false, {state:game.GameStates.LEVEL2});
+        scene.on(game.GameStateEvents.GAME_OVER, this.onStateEvent, this, false, { state: game.GameStates.GAME_OVER });
+        scene.on(game.GameStateEvents.LEVEL2, this.onStateEvent, this, false, { state: game.GameStates.LEVEL2 });
         stage.removeChild(this.currentScene);
         this.currentScene = scene;
         this.changeState(game.GameStates.RUN_SCENE);
     }
 
-    p.gameStateLevel2 = function (){
+    p.gameStateLevel2 = function () {
         var scene = new game.Level2();
         stage.addChild(scene);
-        scene.on(game.GameStateEvents.GAME_OVER, this.onStateEvent, this, false, {state:game.GameStates.GAME_OVER});
-        scene.on(game.GameStateEvents.LEVEL3, this.onStateEvent, this, false, {state:game.GameStates.LEVEL3});
+        scene.on(game.GameStateEvents.GAME_OVER, this.onStateEvent, this, false, { state: game.GameStates.GAME_OVER });
+        scene.on(game.GameStateEvents.LEVEL3, this.onStateEvent, this, false, { state: game.GameStates.LEVEL3 });
         stage.removeChild(this.currentScene);
         this.currentScene = scene;
         this.changeState(game.GameStates.RUN_SCENE);
     }
 
-    p.gameStateLevel3 = function (){
+    p.gameStateLevel3 = function () {
         var scene = new game.Level3();
         stage.addChild(scene);
-        scene.on(game.GameStateEvents.GAME_OVER, this.onStateEvent, this, false, {state:game.GameStates.GAME_OVER});
+        scene.on(game.GameStateEvents.GAME_OVER, this.onStateEvent, this, false, { state: game.GameStates.GAME_OVER });
+        scene.on(game.GameStateEvents.END_GAME, this.onStateEvent, this, false, { state: game.GameStates.END_GAME });
         stage.removeChild(this.currentScene);
         this.currentScene = scene;
         this.changeState(game.GameStates.RUN_SCENE);
@@ -158,7 +171,7 @@
             this.currentGameStateFunction();
         }
     }
-    
+
     p.onTick = function (e) {
         this.run();
         stage.update();

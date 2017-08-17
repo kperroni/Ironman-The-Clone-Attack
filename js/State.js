@@ -10,7 +10,8 @@
         GAME_OVER:4,
         LEVEL1: 5,
         LEVEL2: 6,
-        LEVEL3: 7
+        LEVEL3: 7,
+        END_GAME: 8
     }
 
     var GameStateEvents = {
@@ -21,7 +22,8 @@
         CONTROLS_SCREEN:'control screen event',
         LEVEL1: "level 1",
         LEVEL2: "level 2",
-        LEVEL3: "level 3"
+        LEVEL3: "level 3",
+        END_GAME: "end game"
     }
 
     window.game.GameStates = GameStates;
