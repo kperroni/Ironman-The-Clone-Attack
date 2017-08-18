@@ -48,6 +48,7 @@
 
     p.playGame = function (e) {
         createjs.Sound.stop();
+        createjs.Sound.play("hulk_sd");
         this.dispatchEvent(game.GameStateEvents.LEVEL1);
     }
 

@@ -197,7 +197,7 @@
         this.isJumping = false;
 
         if (!this.isGrounded) {
-            if (this.currentAnimation != "fly") {
+            if (this.currentAnimation != "fly" && this.isAlive) {
                 this.gotoAndPlay('fly');
                 this.stopCurrentSound();
                 this.currentSound = createjs.Sound.play('jet', { loop: -1 });

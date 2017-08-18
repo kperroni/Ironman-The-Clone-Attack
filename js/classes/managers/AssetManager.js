@@ -47,6 +47,7 @@
     p.EXPLOSION = 'explosion';
     p.COIN = 'coin';
     p.CASH = 'cash';
+    p.HULK_SCREAM = 'hulk_sd';
 
     //events
     p.ASSETS_PROGRESS = 'assets progress';
@@ -75,6 +76,7 @@
             {id: this.GAMEOVER_MUSIC, src: this.soundsPath + "gameOverMusic.mp3"},
             {id: this.GAMEOVER_VOICE, src: this.soundsPath + "gameOverVoice.mp3"},
             {id: this.CASH, src: this.soundsPath + "cash.mp3"},
+            {id: this.HULK_SCREAM, src: this.soundsPath + "hulk.mp3"},
             {id: this.JET, src: this.soundsPath + "jet.wav"},
             {id: this.IRONMAN, src: this.imgPath + "IronMan.json"},
             {id: this.HULK, src: this.imgPath + "Hulk.json"},
