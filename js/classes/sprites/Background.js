@@ -23,7 +23,7 @@
             this.x = document.getElementById('canvas').width - player.velocity;
         }
         
-        if(player.x >= document.getElementById('canvas').width / 2 && player.isWalking  && !player.isShooting && player.direction == "RIGHT"){
+        if(player.x >= document.getElementById('canvas').width / 2 && player.isWalking  && !player.isShooting && player.direction == "RIGHT" && game.main.currentScene.exitDoor.x > document.getElementById('canvas').width / 2){
             this.x -= player.velocity;
         }
     }

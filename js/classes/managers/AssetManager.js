@@ -40,6 +40,7 @@
 
     p.BLOOD = "blood";
     p.FLOOR = "floor";
+    p.DOOR = "door";
     p.ENERGY = "energy";
     p.HEALTH = "health";
     p.KEYBOARD = "keyboard";
@@ -82,6 +83,7 @@
             {id: this.HULK, src: this.imgPath + "Hulk.json"},
             {id: this.BLOOD, src: this.imgPath + "Blood.json"},
             {id: this.FLOOR, src: this.imgPath + "tile.json"},
+            {id: this.DOOR, src: this.imgPath + "door.json"},
             {id: this.ENERGY, src: this.imgPath + "energy.json"},
             {id: this.HEALTH, src: this.imgPath + "health.json"},
             {id: this.COIN, src: this.imgPath + "Coin.json"},

@@ -8,9 +8,12 @@
     var leftKeyDown, rightKeyDown, upKeyDown = false;
 
     function onDPadDown(e){
+        if(game.main.currentScene.player == null || game.main.currentScene.exited == true){
+            return;
+        }
+
         switch (e.keyCode){
             case ARROW_KEY_LEFT:
-                console.log("left pressed");
                 leftKeyDown = true;
                 break;
             case ARROW_KEY_RIGHT:

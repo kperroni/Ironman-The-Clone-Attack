@@ -1,0 +1,23 @@
+{
+    "images": ["assets/img/door.png"],
+    "frames": [
+        [0, 0, 58, 64], 
+        [0, 64, 58, 64], 
+        [0, 128, 58, 64], 
+        [0, 192, 58, 64]
+    ],
+    "animations": {
+            "open":{
+                "frames":[0,1,2,3],
+                    "speed": 0.1
+                },
+            "close":{
+                    "frames":[3,2,1,0],
+                        "speed": 0.1
+                    }
+    },
+    "texturepacker": [
+            "SmartUpdateHash: $TexturePacker:SmartUpdate:f6a7b7f45541eec44bf31fcf0bc19b93$",
+            "Created with TexturePacker (http://www.texturepacker.com) for EasalJS"
+    ]
+}

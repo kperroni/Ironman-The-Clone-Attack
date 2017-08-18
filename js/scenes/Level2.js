@@ -16,6 +16,7 @@
     p.background;
     p.secondBackground;
     p.player;
+    p.exitDoor;
     p.energyBar;
     p.portrait;
     p.healthBar;
@@ -27,6 +28,7 @@
     p.explosion = Array();
     p.floor = Array();
     p.runningScene = true;
+    p.exited = false;
     p.map = [
                 [0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,2,5,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -36,7 +38,7 @@
                 [0,0,0,0,5,0,0,0,0,0,2,0,5,0,0,5,0,0,2,0,0,0,0,0,3,0,5,0,0,0,5,0,0,0,0,0,0,0,0,3,0,0,1,1,0,1,1,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,5,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
             ];
 
@@ -55,6 +57,7 @@
         this.addEnergyBar();
         this.addHealth();
         this.addPortrait();
+        this.addDoor();
         this.addPlayer();
         this.createlevel2Container();
     }
@@ -85,6 +88,9 @@
                     case 5: //Coin
                         this.coin.push(new game.Coin(new createjs.SpriteSheet(game.assets.getAsset(game.assets.COIN)), j * 48, i * 48));
                         break;
+                    case 7: //Door
+                        this.exitDoor = new game.Door(new createjs.SpriteSheet(game.assets.getAsset(game.assets.DOOR)), j * 48, i * 60 - 30);
+                        break;
                     default:
                         break;
                 }
@@ -114,6 +120,10 @@
         this.portrait.x = 20;
         this.portrait.y = 20;
         this.addChild(this.portrait);
+    }
+
+    p.addDoor = function () {
+        this.addChild(this.exitDoor);
     }
 
     p.addPlayer = function () {
@@ -183,6 +193,7 @@
         this.background.run();
         this.secondBackground.run();
         this.player.checkBattery();
+        this.exitDoor.run();
 
         for (var index = 0; index < this.floor.length; index++) {
             var element = this.floor[index];
@@ -266,17 +277,11 @@
         if(!this.runningScene){
             this.dispatchEvent(game.GameStateEvents.GAME_OVER);
         }
+    }
 
-        var nextLevel = true;
-        for (var index = 0; index < this.enemy.length; index++) {
-            if(this.enemy[index].isAlive == true)
-            nextLevel = false;
-        }
-        //LEVEL 3
-        if(nextLevel == true){
-            this.dispatchEvent(game.GameStateEvents.LEVEL3);
-            createjs.Sound.stop();
-        }
+    p.finishLevel = function(){
+        createjs.Sound.stop();
+        this.dispatchEvent(game.GameStateEvents.LEVEL3);
     }
 
     p.run = function () {

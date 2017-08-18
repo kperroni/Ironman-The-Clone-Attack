@@ -82,7 +82,7 @@
                 this.scaleX = -1;
                 break;
             case "RIGHT":
-                if (this.x < document.getElementById('canvas').width / 2) {
+                if ((this.x < document.getElementById('canvas').width / 2 || game.main.currentScene.exitDoor.x <= document.getElementById('canvas').width / 2) && this.x < 795 ) {
                     this.x += this.velocity * speed;
                 }
                 this.scaleX = 1;
@@ -214,7 +214,7 @@
     }
 
     p.stand = function () {
-        if (this.isGrounded && !this.isShooting && this.isAlive) {
+        if (this.isGrounded && !this.isShooting && this.isAlive && game.main.currentScene.exited == false) {
             this.gotoAndStop('stand');
             this.stopCurrentSound();
         }
