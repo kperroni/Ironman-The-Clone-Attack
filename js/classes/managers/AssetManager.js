@@ -13,6 +13,7 @@
     p.LASER = 'laser';
     p.PUNCH = 'punch';
     p.DEATH = 'death';
+    p.RESTORE_HP = "restore_hp";
     p.GAMEOVER_MUSIC = "gameOver_Music";
     p.GAMEOVER_VOICE = "gameOver_Voice";
     p.WIN_MUSIC = "win_music";
@@ -42,6 +43,7 @@
     p.FLOOR = "floor";
     p.ENERGY = "energy";
     p.HEALTH = "health";
+    p.HEART = "heart";
     p.KEYBOARD = "keyboard";
     p.PORTRAIT = 'portrait';
     p.EXPLOSION = 'explosion';
@@ -70,6 +72,7 @@
             {id:this.DEATH, src: this.soundsPath + "death.mp4"},
             {id:this.INTRO, src: this.soundsPath + "intro.mp3"},
             {id:this.WIN_MUSIC, src: this.soundsPath + "win.mp3"},
+            {id:this.RESTORE_HP, src: this.soundsPath + "restoreHp.mp3"},
             {id: this.LEVEL1_SOUND, src: this.soundsPath + "level1.mp3"},
             {id: this.LEVEL2_SOUND, src: this.soundsPath + "level2.mp3"},
             {id: this.LEVEL3_SOUND, src: this.soundsPath + "level3.mp3"},
@@ -81,6 +84,7 @@
             {id: this.IRONMAN, src: this.imgPath + "IronMan.json"},
             {id: this.HULK, src: this.imgPath + "Hulk.json"},
             {id: this.BLOOD, src: this.imgPath + "Blood.json"},
+            {id: this.HEART, src: this.imgPath + "heart.json"},
             {id: this.FLOOR, src: this.imgPath + "tile.json"},
             {id: this.ENERGY, src: this.imgPath + "energy.json"},
             {id: this.HEALTH, src: this.imgPath + "health.json"},
