@@ -23,7 +23,7 @@
 
         game.main.currentScene.player.hitPoints -= damage;
 
-        if (this.changingLife - damage < 0) {
+        if (this.changingLife - damage <= 0) {
             this.scaleX = 0;
         }
 
@@ -39,13 +39,18 @@
         if (!game.main.currentScene.player.isAlive)
             return;
 
-        game.main.currentScene.player.hitPoints += healthPoints;
-        if (this.changingLife + healthPoints > this.life) {
+        if(game.main.currentScene.player.hitPoints + healthPoints >= 10){
+            game.main.currentScene.player.hitPoints = 10;
+            this.changingLife = 10;
+        }       
+        
+        if (this.changingLife + healthPoints >= this.life) {
             this.scaleX = 1;
         }
 
         else {
             this.changingLife += healthPoints;
+            game.main.currentScene.player.hitPoints += healthPoints;
             this.scaleX = this.changingLife / this.life;
 
         }
