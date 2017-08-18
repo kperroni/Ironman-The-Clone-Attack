@@ -223,7 +223,6 @@
     p.attacked = function (damage) {
         console.log(this.invulnerable);
         this.invulnerable = true;
-        this.hitPoints -= damage;
         game.main.currentScene.healthBar.decreaseLife(damage);
         createjs.Sound.play("punch");
         this.stop();

@@ -28,13 +28,14 @@
     p.blood = Array();
     p.explosion = Array();
     p.floor = Array();
+    p.heart = Array();
     p.runningScene = true;
     p.exited = false;
     p.map = [
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,5,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,5,5,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,5,5,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,5,0,0,0,5,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -57,6 +58,7 @@
         this.addPhysics();
         this.addFloor();
         this.addCoin();
+        this.addHeart();
         this.addMessages();
         this.addDoor();
         this.addPlayer();
@@ -70,6 +72,7 @@
         this.blood = Array();
         this.floor = Array();
         this.coin = Array();
+        this.heart = Array();
 
         for(i = 0; i < this.map.length; i++){
             for(j = 0; j < this.map[i].length; j++){
@@ -92,6 +95,9 @@
                     case 7: //Door
                         this.exitDoor = new game.Door(new createjs.SpriteSheet(game.assets.getAsset(game.assets.DOOR)), j * 48, i * 60 - 30);
                         break;
+                        case 6: //Heart
+                        this.heart.push(new game.Heart(new createjs.SpriteSheet(game.assets.getAsset(game.assets.HEART)), j * 48, i * 48));
+                        break;    
                     default:
                         break;
                 }
@@ -161,6 +167,12 @@
         }, this);
     }
 
+    p.addHeart = function () {
+        this.heart.forEach(function (element) {
+            this.addChild(element);
+        }, this);
+    }
+
     p.addMessages = function () {
         var score = new createjs.Text("0", '40px IronmanFont', '#FFF');
         score.x = canvas.width - 200;
@@ -211,6 +223,17 @@
             if (element.x + element.getBounds().width < 0 || element.collected) {
                 this.removeChild(element);
                 this.coin.splice(index, 1);
+            }
+        }
+
+        for (var index = 0; index < this.heart.length; index++) {
+            var element = this.heart[index];
+
+            element.run();
+
+            if (element.x + element.getBounds().width < 0 || element.collected) {
+                this.removeChild(element);
+                this.heart.splice(index, 1);
             }
         }
 
@@ -271,8 +294,10 @@
     }
 
     p.checkLevel1 = function () {
+        var nextLevel = true;
         if(!this.runningScene){
             this.dispatchEvent(game.GameStateEvents.GAME_OVER);
+            nextLevel = false;
         }
     }
 

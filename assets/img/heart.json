@@ -1,0 +1,18 @@
+{
+    "images": ["assets/img/Heart.png"],
+    "frames": [
+        [13, 21, 121, 86],  
+        [512, 21, 121, 81] 
+    ],
+    "animations": {
+            "flicker":{
+                "frames":[0, 1],
+                    "speed": 0.02
+            }
+
+    },
+    "texturepacker": [
+            "SmartUpdateHash: $TexturePacker:SmartUpdate:f6a7b7f45541eec44bf31fcf0bc19b93$",
+            "Created with TexturePacker (http://www.texturepacker.com) for EasalJS"
+    ]
+}
